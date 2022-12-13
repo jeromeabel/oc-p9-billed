@@ -14,6 +14,10 @@
 - [ ] ...
 - [ ] ...
 
+## Run
+- Back : npm run dev
+- Front : live-server, npm run test
+
 ## Resources
 - JEST : https://jestjs.io/docs/getting-started
 - https://openclassrooms.com/fr/courses/3504461-testez-linterface-de-votre-site 4h
@@ -22,7 +26,7 @@
 - https://openclassrooms.com/fr/courses/7008001-debutez-avec-react 8h
 - partie 3 : https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete
 
-## Resources projets
+## Project resources 
 - Pdf : Descriptions des fonctionnalités
 - Pdf : Description pratique des besoins
 - Rapport : https://www.notion.so/a7a612fc166747e78d95aa38106a55ec?v=2a8d3553379c4366b6f66490ab8f0b90
