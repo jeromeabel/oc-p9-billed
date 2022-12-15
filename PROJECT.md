@@ -12,9 +12,11 @@
 
 ## DONE
 - __tests__/Bills.js :  const datesSorted = [...dates].sort( (a,b) => b - a )
-- __tests__/Logins.js > containers/Logins line 42 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
+- __tests__/Logins.js > containers/Logins : line 42 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
 - containers/NewBills.js > handleChangeFile : fileType + fileUrl (accept=".png, .jpg, .jpeg")
 - containers/Dashboards.js > handleEditTicket : counter, extraction de l'affichage
+- __tests__/Bills.js : import jestdom + expect(windowIcon).toHaveClass('active-icon')
+- __tests__/Bills.js : eye icon should open the modal. Jquery mock, route, data, click
 
 ## Run
 - Back : npm run dev
