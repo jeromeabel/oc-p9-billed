@@ -48,8 +48,23 @@ describe("Given I am connected as an employee", () => {
     })
   })
 
-  // ------------ New Tests ------------ //
-  describe("Given I am connected as an employee ", () => {
+    // ------------ New Tests ------------ //
+
+  describe('When I am on Bills Page but it is loading', () => {
+    test('Then the Loading page should be rendered', () => {
+      document.body.innerHTML = BillsUI({ loading: true })
+      expect(screen.getAllByText('Loading...')).toBeTruthy()
+    })
+  })
+
+  describe('When I am on Bills Page but back-end sends an error message', () => {
+    test('Then the Error page should be rendered', () => {
+      document.body.innerHTML = BillsUI({ error: 'some error message' })
+      expect(screen.getAllByText('Erreur')).toBeTruthy()
+    })
+  })
+
+  describe("When I am on Bills Page ", () => {
 
     // Factorisation de la création de la vue "Employee"
     beforeEach(() => {
@@ -61,7 +76,7 @@ describe("Given I am connected as an employee", () => {
       document.body.innerHTML = BillsUI({ data: bills });
 
       billsContainer = new Bills({
-        // ?? store mocked
+        // ?? store null or mocked
         document, onNavigate, store:null, localStorage: window.localStorage 
       });
     })
@@ -79,15 +94,17 @@ describe("Given I am connected as an employee", () => {
         // Get Elements
         const eyeIcon = screen.getAllByTestId('icon-eye')[0]; // ?? only the first one
         const openModal = jest.fn(billsContainer.handleClickIconEye(eyeIcon));
+        const modal = screen.getByTestId('modalFileEmployee'); // ajouté dans BillsUI
 
         // Set Events
         eyeIcon.addEventListener('click', openModal);
         userEvent.click(eyeIcon);
 
         // Assertions
-        expect(openModal).toHaveBeenCalled();
-        const modal = screen.getByTestId('modalFileEmployee'); // ajouté dans BillsUI
-        expect(modal).toBeTruthy();
+        expect(openModal).toHaveBeenCalled(); // La fonction a été appelée
+        expect(modal).toBeTruthy(); // La modale est affichée
+        expect(screen.getByText("Justificatif")).toBeTruthy(); // Le titre est correct
+        // Test URL Image ?
         //expect(modal).toHaveClass("show") // ?? ne marche pas
       })
     })
@@ -107,8 +124,41 @@ describe("Given I am connected as an employee", () => {
         // Assertions
         expect(openNewBill).toHaveBeenCalled(); // La fonction a été appelée
         expect(screen.getByTestId('form-new-bill')).toBeTruthy(); // Le formulaire est affiché
+        expect(screen.getByText("Envoyer une note de frais")).toBeTruthy(); // Le titre est correct
       })
     })
 
+    
+
+
+  /*
+
+
+  Test GetBills
+  */
+
+
+  }) //  When Employee Page
+}) // Given Connected as Employee
+
+
+
+
+// test d'intégration GET
+
+/*
+describe("Given I am a user connected as Employee", () => {
+  describe("When I am on Bills page", () => {
+    test("fetches bills from mock API GET", async () => {
+      localStorage.setItem("user", JSON.stringify({ type: "Employee", email: "a@a" }));
+      const root = document.createElement("div")
+      root.setAttribute("id", "root")
+      document.body.append(root)
+      router()
+      window.onNavigate(ROUTES_PATH.Bills)
+      await waitFor(() => screen.getByText("Mes notes de frais")); // ??
+      expect(screen.getByTestId("tbody")).toBeTruthy();
+    })
   })
 })
+*/
