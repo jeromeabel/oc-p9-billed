@@ -13,6 +13,7 @@ import mockStore from "../__mocks__/store"
 import { bills } from "../fixtures/bills"
 import router from "../app/Router"
 
+// ?? Cannot find module '../app/store' from 'src/__tests__/Dashboard.js'
 jest.mock("../app/store", () => mockStore)
 
 describe('Given I am connected as an Admin', () => {
