@@ -1,18 +1,20 @@
 # PROJECT
 
 ## TODO
-- [ ] Installer le Back-End (README)
-- [ ] Installer le Front-End (README)
-- [ ] Lire Doc Descriptions des fonctionnalités
+- [x] Installer le Back-End (README)
+- [x] Installer le Front-End (README)
+- [x] Lire Doc Descriptions des fonctionnalités
 - [ ] Lire Description pratique des besoins (+ rapport + plans de tests)
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Bugs 1 - report  : Kanban / Jest / Debugger
+- [ ] Bugs 2 - hunt : parcours employés / Kanban / Debugger 
+- [ ] Tests unitaires & intégration > 80%: fichiers Bill et NewBill. S'inspirer des tests Login et Dashboard RH, rapports de tests coverage
+- [ ] Tests E2E : rédiger un plan de tests, s'inspirer du parcours admin RH
+
+## DONE
+- __tests__/Bills.js :  const datesSorted = [...dates].sort( (a,b) => b - a )
+- __tests__/Logins.js > containers/Logins line 42 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
+- containers/NewBills.js > handleChangeFile : fileType + fileUrl (accept=".png, .jpg, .jpeg")
+- admin : selection de plusieurs listes
 
 ## Run
 - Back : npm run dev
@@ -25,6 +27,7 @@
 - https://openclassrooms.com/fr/courses/7159306-testez-vos-applications-front-end-avec-javascript 10h
 - https://openclassrooms.com/fr/courses/7008001-debutez-avec-react 8h
 - partie 3 : https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 
 ## Project resources 
 - Pdf : Descriptions des fonctionnalités
