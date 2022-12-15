@@ -14,7 +14,7 @@
 - __tests__/Bills.js :  const datesSorted = [...dates].sort( (a,b) => b - a )
 - __tests__/Logins.js > containers/Logins line 42 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
 - containers/NewBills.js > handleChangeFile : fileType + fileUrl (accept=".png, .jpg, .jpeg")
-- admin : selection de plusieurs listes
+- containers/Dashboards.js > handleEditTicket : counter, extraction de l'affichage
 
 ## Run
 - Back : npm run dev
