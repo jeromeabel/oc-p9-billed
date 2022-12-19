@@ -16,28 +16,27 @@ export default class NewBill {
     new Logout({ document, localStorage, onNavigate })
   }
   handleChangeFile = e => {
-    e.preventDefault()
-    const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
+    e.preventDefault();
+    // DOM
+    const errorMessage = this.document.querySelector('.error-message');
+    const file = this.document.querySelector(`input[data-testid="file"]`).files[0];
     //const filePath = e.target.value.split(/\\/g)
     //const fileName = filePath[filePath.length-1]
+
+    // File name & accepted formats
     const fileName = file.name;
     const isImage = [ 'image/jpeg', 'image/png' ].includes(file.type);
-    const fileUrl = URL.createObjectURL(file);
+   
+    // Data
     const formData = new FormData()
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
     formData.append('email', email)
-
-    /*
-    console.group("Test Image")
-    console.log('name : ', fileName);
-    console.log('isImage : ', isImage);
-    console.log('type : ', file.type);
-    console.log('fileUrl : ', fileUrl);
-    console.groupEnd();
-    */
    
     if ( isImage ) {
+       // Hide the error message
+      errorMessage.classList.add('hidden');
+
       this.store
         .bills()
         .create({
@@ -47,11 +46,15 @@ export default class NewBill {
           }
         })
         .then(({fileUrl, key}) => {
-          console.log("success")
+          //console.log("success")
           this.billId = key
           this.fileUrl = fileUrl
           this.fileName = fileName
         }).catch(error => console.error(error))
+    } else {
+      // Clear form and show the error message
+      e.target.value = '';
+      errorMessage.classList.remove('hidden');
     }
   }
   handleSubmit = e => {
