@@ -14,13 +14,17 @@
 - __tests__/Bills.js :  const datesSorted = [...dates].sort( (a,b) => b - a )
 - __tests__/Logins.js > containers/Logins : line 42 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
 - containers/NewBills.js > handleChangeFile : fileType + fileUrl (accept=".png, .jpg, .jpeg")
-- containers/Dashboards.js > handleEditTicket : counter, extraction de l'affichage
+- containers/Dashboards.js > handleShowTickets : filteredBills(bills, getStatus(this.index)).forEach
 - __tests__/Bills.js : import jestdom + expect(windowIcon).toHaveClass('active-icon')
 - __tests__/Bills.js : eye icon should open the modal. Jquery mock, route, data, click
+- Dashboards : "Store"
+- Login
+- NewBill
 
 ## Run
 - Back : npm run dev
 - Front : live-server, npm run test
+- coverage single file : npm test --  --coverage --collectCoverageFrom src/containers/Bills.js ----testPathPattern src/__tests__/Bills.js --verbose
 
 ## Resources
 - JEST : https://jestjs.io/docs/getting-started
