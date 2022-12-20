@@ -145,7 +145,9 @@ export default class {
       this.counter ++
     }
 
-    filteredBills(bills, getStatus(this.index)).forEach(bill => { // Debug bills.forEach
+    // Debug : On ajoute l'événement seulement aux éléments concernés
+    const filtered = filteredBills(bills, getStatus(this.index));
+    filtered.forEach(bill => { // Debug bills.forEach
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
     })
 
