@@ -18,7 +18,7 @@
 - __tests__/Bills.js : import jestdom + expect(windowIcon).toHaveClass('active-icon')
 - __tests__/Bills.js : eye icon should open the modal. Jquery mock, route, data, click
 - Dashboards : "Store"
-- Login
+- Login ?? : To do : test catch error on handleSubmitEmployee + handleSubmitAdmin
 - NewBill
 
 ## Run
