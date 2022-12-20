@@ -9,6 +9,7 @@ import userEvent from '@testing-library/user-event'
 import { bills } from "../fixtures/bills.js"
 import { localStorageMock } from "../__mocks__/localStorage.js";
 import mockStore from "../__mocks__/store"
+
 import { ROUTES, ROUTES_PATH } from "../constants/routes.js";
 import router from "../app/Router.js";
 import BillsUI from "../views/BillsUI.js"
@@ -17,12 +18,11 @@ import Bills from "../containers/Bills.js"
 // MockStore for Integration Tests
 jest.mock("../app/Store", () => mockStore) 
 
-// Set Navigate Function
+// Mock the navigation
 const onNavigate = (pathname) => { document.body.innerHTML = ROUTES({ pathname }) }
 
 
 // -------- UNIT TESTS --------- //
-
 describe("Given I am connected as an employee", () => {
 
   // Set Mock Local Storage as Employee for All Tests
@@ -129,7 +129,7 @@ describe("Given I am connected as an employee", () => {
 }) // Unit Test - Employee
 
 
-// -------- INTEGRATION TESTS --------- //
+// -------- INTEGRATION TESTS (GET) --------- //
 describe("Bills integrations tests", () => {
 
   describe("Given I am a user connected as Employee", () => {
