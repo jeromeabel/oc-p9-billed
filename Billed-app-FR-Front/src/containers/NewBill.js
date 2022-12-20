@@ -35,7 +35,7 @@ export default class NewBill {
    
     if ( isImage ) {
        // Hide the error message
-      errorMessage.classList.add('hidden');
+      errorMessage.classList.add('d-none');
 
       this.store
         .bills()
@@ -54,12 +54,12 @@ export default class NewBill {
     } else {
       // Clear form and show the error message
       e.target.value = '';
-      errorMessage.classList.remove('hidden');
+      errorMessage.classList.remove('d-none');
     }
   }
   handleSubmit = e => {
     e.preventDefault()
-    console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
+    //console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
     const email = JSON.parse(localStorage.getItem("user")).email
     const bill = {
       email,
