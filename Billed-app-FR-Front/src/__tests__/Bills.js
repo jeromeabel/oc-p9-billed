@@ -99,8 +99,8 @@ describe("Given I am connected as an employee", () => {
         expect(screen.getByText("Justificatif")).toBeTruthy(); // Le titre de la modale est présent
 
         // Assert : click > img
-        const img = screen.getByTestId("modalBillImg"); // > Bills ou query "div.bill-proof-container > img"
-        expect(img).toHaveAttribute('src', bills[bills.length - 1].fileUrl); // Check the last call URL
+        const img = screen.getByTestId("modalBillImg");
+        expect(img).toHaveAttribute('src', bills[bills.length - 1].fileUrl); // Check the file URL of the last call 
 
         // Assert : click > functions calls
         expect($.fn.modal).toHaveBeenCalledWith('show'); // La fonction modal a été appelée avec l'argument "show"
@@ -138,7 +138,7 @@ describe("Given I am connected as an employee", () => {
 // -------- INTEGRATION TESTS (GET) --------- //
 describe("Bills integrations tests", () => {
 
-  describe("Given I am a user connected as Employee", () => {
+  describe("Given I am connected as an employee", () => {
 
     // Set Mock Local Storage as Employee for All Tests
     beforeAll(() => {
@@ -147,7 +147,7 @@ describe("Bills integrations tests", () => {
     })
 
     describe("When I am on Bills Page", () => {
-      test("Then fetches bills from mock API GET", async () => {
+      test("Then it fetches bills from mock API GET", async () => {
         // Arrange
         document.body.innerHTML = BillsUI({ data: bills });
         const billsContainer = new Bills({ document, onNavigate, store: mockStore, localStorage: window.localStorage });
@@ -175,7 +175,7 @@ describe("Bills integrations tests", () => {
         router();
       })
 
-      test("fetches bills from an API and fails with 404 message error", async () => {
+      test("Then it fetches bills from an API and fails with 404 message error", async () => {
         // Arrange : Mock bills function with a rejected Promise
         mockStore.bills.mockImplementationOnce(() => {
           return {
@@ -194,7 +194,7 @@ describe("Bills integrations tests", () => {
         expect(message).toBeTruthy();
       })
 
-      test("fetches messages from an API and fails with 500 message error", async () => {
+      test("Then it fetches messages from an API and fails with 500 message error", async () => {
          // Arrange : Mock bills function with a rejected Promise
         mockStore.bills.mockImplementationOnce(() => {
           return {
