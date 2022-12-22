@@ -9,18 +9,16 @@
 - [x] Bugs 2 - hunt : parcours employés / Kanban / Debugger 
 - [x] Tests unitaires & intégration > 80%: fichiers Bill et NewBill. S'inspirer des tests Login et Dashboard RH, rapports de tests coverage
 - [x] Tests E2E : rédiger un plan de tests, s'inspirer du parcours admin RH
+- [ ] Login : test catch error on handleSubmitEmployee + handleSubmitAdmin
 
 ## DONE
+- containers/Login.js > handleSubmitAdmin line 43 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
+- containers/NewBill.js > handleChangeFile : fileType (accept=".png, .jpg, .jpeg")
+- containers/Dashboard.js > handleShowTickets : filteredBills(bills, getStatus(this.index)).forEach
+- __tests__/Dashboard.js : "Store"
 - __tests__/Bills.js :  const datesSorted = [...dates].sort( (a,b) => b - a )
-- __tests__/Logins.js > containers/Logins : line 42 querySelector(`input[data-testid="admin-email-input"]`) instead of employee-email-input
-- containers/NewBills.js > handleChangeFile : fileType (accept=".png, .jpg, .jpeg")
-- containers/Dashboards.js > handleShowTickets : filteredBills(bills, getStatus(this.index)).forEach
-- __tests__/Bills.js : import jestdom + expect(windowIcon).toHaveClass('active-icon')
-- __tests__/Bills.js : eye icon should open the modal. Jquery mock, route, data, click
-- Dashboards : "Store"
-- NewBill
-- Login ?? : To do : test catch error on handleSubmitEmployee + handleSubmitAdmin
-
+- __tests__/Bills.js : import jestdom + expect(windowIcon).toHaveClass('active-icon') + tests
+- __tests__/NewBill.js : tests
 
 ## Run tests commands
 - Back : npm run dev

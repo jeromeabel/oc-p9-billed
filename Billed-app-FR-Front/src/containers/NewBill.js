@@ -15,6 +15,7 @@ export default class NewBill {
     this.billId = null
     new Logout({ document, localStorage, onNavigate })
   }
+
   handleChangeFile = e => {
     e.preventDefault();
     // DOM
@@ -34,7 +35,7 @@ export default class NewBill {
     formData.append('email', email)
    
     if ( isImage ) {
-       // Hide the error message
+      // Hide the error message
       errorMessage.classList.add('d-none');
 
       this.store
@@ -46,7 +47,6 @@ export default class NewBill {
           }
         })
         .then(({fileUrl, key}) => {
-          //console.log("success")
           this.billId = key
           this.fileUrl = fileUrl
           this.fileName = fileName
@@ -57,6 +57,7 @@ export default class NewBill {
       errorMessage.classList.remove('d-none');
     }
   }
+  
   handleSubmit = e => {
     e.preventDefault()
     //console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
