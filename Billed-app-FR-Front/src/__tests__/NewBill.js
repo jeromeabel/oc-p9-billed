@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, screen, waitFor } from "@testing-library/dom"
-import { toHaveClass } from "@testing-library/jest-dom"
-import userEvent from '@testing-library/user-event'
+import { fireEvent, screen, waitFor } from "@testing-library/dom" // Queries DOM
+import { toHaveClass } from "@testing-library/jest-dom" // Custom matchers DOM
+import userEvent from '@testing-library/user-event' // Events click, keyboards
 
 import NewBillUI from "../views/NewBillUI.js"
 import NewBill from "../containers/NewBill.js"
@@ -143,7 +143,6 @@ describe('Given I am connected as Employee on NewBill Page', () => {
       //const createdBill = await mockStore.bills().create(null); // New Mock Bill
       const form = screen.getByTestId('form-new-bill');
       const btnSubmit = document.getElementById("btn-send-bill");
-
 
       // Mock functions
       jest.spyOn(mockStore, 'bills');

@@ -195,7 +195,7 @@ describe("Bills integrations tests", () => {
       })
 
       test("Then it fetches messages from an API and fails with 500 message error", async () => {
-         // Arrange : Mock bills function with a rejected Promise
+        // Arrange : Mock bills function with a rejected Promise
         mockStore.bills.mockImplementationOnce(() => {
           return {
             list: () => {
