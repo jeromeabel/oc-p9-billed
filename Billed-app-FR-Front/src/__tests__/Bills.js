@@ -54,13 +54,14 @@ describe("Given I am connected as an employee", () => {
       const dates = screen
         .getAllByText(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i)
         .map(a => a.innerHTML)
-
+      
       // Act
-      const antiChrono = (a, b) => b - a; // Debug sort compare function
-      const datesSorted = [...dates].sort(antiChrono)
+      //const antiChrono = (a, b) => (a < b ? 1 : -1);
+      //const datesSorted = [...dates].sort(antiChrono);
+      const datesSorted = [ '2004-04-04', '2003-03-03', '2002-02-02', '2001-01-01' ]
 
       // Assert
-      expect(dates).toEqual(datesSorted)
+      expect(dates).toEqual(datesSorted);
     })
 
     test('Then, Loading page should be rendered', () => {
@@ -151,7 +152,7 @@ describe("Bills integrations tests", () => {
         // Arrange
         document.body.innerHTML = BillsUI({ data: bills });
         const billsContainer = new Bills({ document, onNavigate, store: mockStore, localStorage: window.localStorage });
-        await waitFor(() => screen.getByText("Mes notes de frais"))
+        await waitFor(() => screen.getByText("Mes notes de frais"));
 
         // Act
         const billsLoaded = await billsContainer.getBills();
@@ -187,7 +188,7 @@ describe("Bills integrations tests", () => {
 
         // Act
         window.onNavigate(ROUTES_PATH.Bills);
-        await new Promise(process.nextTick);
+        await new Promise(process.nextTick); // delai
 
         // Assert : error message
         const message = await screen.getByText(/Erreur 404/);
