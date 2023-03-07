@@ -1,5 +1,15 @@
 # PROJECT
 
+## Cahier des charges
+- Parcours administrateur : débugger (Chrome Debugger)
+- Parcours employé : tester et débugger
+
+## Compétences
+- Écrire des tests unitaires avec JavaScript
+- Débugger une application web avec le Chrome Debugger
+- Rédiger un plan de test end-to-end manuel
+- Écrire des tests d'intégration avec JavaScript
+
 ## TODO
 - [x] Installer le Back-End (README)
 - [x] Installer le Front-End (README)
